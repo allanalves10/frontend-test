@@ -69,5 +69,19 @@ export default function buildFullUrl(opts: Options) {
   if (qs != null) {
     url += '?' + qs
   }
+
+  
+  if (opts.id && url.indexOf(':id') !== - 1) {
+    const aux = 0;
+    const lengthStringId = 3;
+    const indexSearch = url.indexOf(':id');
+    const beginUrl = url.substring(aux, indexSearch);
+
+    const endUrl = url.substring(indexSearch + lengthStringId);
+    const final = beginUrl+opts.id+endUrl;
+    url = final;
+
+  }
+
   return url
 }
